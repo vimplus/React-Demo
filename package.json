@@ -1,0 +1,19 @@
+{
+  "name": "reactdemo",
+  "version": "1.0.0",
+  "description": "A basic React project",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "2.18.8",
+    "gulp": "3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "run server"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "vimplus",
+  "license": "MIT"
+}
