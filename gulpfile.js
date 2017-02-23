@@ -38,7 +38,7 @@ gulp.task('browserSync', function() {
   })
 })
 
-gulp.task('webpack', function(callback) {
+gulp.task('server', function(callback) {
   var compiler = webpack(config)
   var serverConfig = {
     hot: true,
@@ -50,8 +50,6 @@ gulp.task('webpack', function(callback) {
       if (err) throw new gutil.PluginError("webpack-dev-server", err);
       // Server listening
       gutil.log("[webpack-dev-server]", "http://localhost:8080");
-      // keep the server alive or continue?
-      // callback();
     });
 })
 
