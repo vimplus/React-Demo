@@ -13,7 +13,7 @@ module.exports = {
     watch: true, //监听变化自动编译
     //文件入口配置
     entry: {
-        index: "./src/index.js"
+        index: "./src/entry/index.js"
     },
     //文件输出配置
     output: {
@@ -32,8 +32,8 @@ module.exports = {
                 }
         }, {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract({ 
-                loader: 'css-loader?sourceMap' 
+            loader: ExtractTextPlugin.extract({
+                loader: 'css-loader?sourceMap'
             })
         }, {
             test: /\.(scss|sass)$/,
