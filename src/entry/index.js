@@ -1,4 +1,5 @@
 /**
+ * overview: Build Entry
  * Created by vimplus on 2017/02/22.
  */
 
@@ -10,15 +11,13 @@ import Index from "../routes/HelloWorld";
 import List from "../routes/BlogList";
 import About from "../routes/About";
 
-import routes from "../routes";
-
 class App extends React.Component {
     render() {
         return (
             <div>
                 <ul>
                   <li><Link to="/list">list</Link></li>
-                  <li><Link to="/About">About</Link></li>
+                  <li><Link to="/about">About</Link></li>
                 </ul>
                 {this.props.children}
             </div>
@@ -27,6 +26,12 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-    <Router history = {browserHistory} routes = {routes}/>,
+    <Router history = {browserHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Index}/>
+          <Route path="list" component={List}/>
+          <Route path="about" component={About}/>
+        </Route>
+    </Router>,
     document.getElementById("APP")
 );
