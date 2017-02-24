@@ -1,3 +1,9 @@
+"use strict";
+/**
+ * overview: Koa Build
+ * Created by vimplus on 2017/02/24.
+ */
+
 const koa = require('koa');
 const app = koa();
 const render = require('koa-static');

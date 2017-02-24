@@ -47,17 +47,17 @@ module.exports = {
     },
     //插件项
     plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
+    //new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin("[name].css"),
     new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             template: './index.html', //html模板路径
         }),
-    new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
-        }),
+    // new webpack.DefinePlugin({
+    //         "process.env": {
+    //             NODE_ENV: JSON.stringify("production")
+    //         }
+    //     }),
     new HtmlWebpackHarddiskPlugin(),
     new webpack.LoaderOptionsPlugin({
             options: {
