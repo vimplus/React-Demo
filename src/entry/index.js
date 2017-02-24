@@ -6,10 +6,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory, hashHistory} from 'react-router';
 
-import Index from "./HelloWorld";
-import List from "./BlogList";
-import About from "./About";
+// import Index from "../routes/HelloWorld";
+// import List from "../routes/BlogList";
+// import About from "../routes/About";
 
+import routes from "../routes";
 
 class App extends React.Component {
     render() {
@@ -25,14 +26,7 @@ class App extends React.Component {
     }
 }
 
-const routes = [
-    { path: 'list', component: List },
-    { path: 'about', component: About }
-  ]
-
-module.exports = {
-    path: '/',
-    component: App,
-    childRoutes: routes,
-    defaultIndex: Index
-};
+ReactDOM.render(
+    <Router history = {browserHistory} routes = {routes}/>,
+    document.getElementById("APP")
+);
