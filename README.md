@@ -9,7 +9,7 @@
     |- js/
     |- js/utils/
     |- js/index.js
-    |- routers/
+    |- routes/
 |- dist/
 |- index.html
 |- gulpfile.js
@@ -23,6 +23,10 @@
 npm install
 ```
 
-## 
+## 启动应用
 
+```
+gulp server
+```
 
+启动后在浏览器输入：`http://localhost:8080/`

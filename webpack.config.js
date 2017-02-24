@@ -29,7 +29,7 @@ module.exports = {
             loader: "babel-loader",
             options: {
                 cacheDirectory: true,
-                }
+            }
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract({
