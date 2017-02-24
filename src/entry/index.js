@@ -9,19 +9,6 @@ import { Router, Route, IndexRoute, Link, IndexLink, browserHistory, hashHistory
 
 import routes from "../routes";
 
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <ul>
-                  <li><Link to="/list">list</Link></li>
-                  <li><Link to="/About">About</Link></li>
-                </ul>
-                {this.props.children}
-            </div>
-        );
-    }
-}
 
 ReactDOM.render(
     <Router history = {browserHistory} routes = {routes}/>,
