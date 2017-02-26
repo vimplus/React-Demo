@@ -1,47 +1,52 @@
 {
-    "name": "React-Demo",
-    "version": "1.0.0",
-    "description": "A basic React project",
-    "main": "index.js",
-    "dependencies": {
-        "autoprefixer": "6.7.4",
-        "babel-core": "6.23.1",
-        "babel-loader": "6.3.2",
-        "babel-polyfill": "6.23.0",
-        "babel-preset-es2015": "6.22.0",
-        "babel-preset-react": "6.23.0",
-        "babel-preset-stage-0": "6.22.0",
-        "babel-preset-stage-3": "6.22.0",
-        "browser-sync": "2.18.8",
-        "css-loader": "0.26.1",
-        "extract-text-webpack-plugin": "2.0.0-beta.4",
-        "gulp": "3.9.1",
-        "gulp-sass": "3.1.0",
-        "html-webpack-harddisk-plugin": "0.1.0",
-        "html-webpack-plugin": "2.28.0",
-        "koa": "2.0.0-alpha.8",
-        "koa-router": "7.0.1",
-        "koa-static": "2.1.0",
-        "koa-xtpl": "2.0.0",
-        "loader-utils": "1.0.2",
-        "path": "0.12.7",
-        "postcss-loader": "1.3.2",
-        "react": "15.4.2",
-        "react-dom": "15.4.2",
-        "react-router": "3.0.2",
-        "sass-loader": "6.0.2",
-        "style-loader": "0.13.1",
-        "url-loader": "0.5.7",
-        "webpack": "2.2.1",
-        "webpack-dev-server": "2.4.1"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "run server"
-    },
-    "keywords": [
-        "react"
-    ],
-    "author": "txBoy",
-    "license": "MIT"
+  "name": "React-Demo",
+  "version": "1.0.0",
+  "description": "A basic React project",
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "6.7.4",
+    "babel-core": "6.23.1",
+    "babel-loader": "6.3.2",
+    "babel-polyfill": "6.23.0",
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-react": "6.23.0",
+    "babel-preset-stage-0": "6.22.0",
+    "babel-preset-stage-3": "6.22.0",
+    "browser-sync": "2.18.8",
+    "css-loader": "0.26.1",
+    "express": "4.14.1",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "gulp": "3.9.1",
+    "gulp-sass": "3.1.0",
+    "html-webpack-harddisk-plugin": "0.1.0",
+    "html-webpack-plugin": "2.28.0",
+    "koa": "2.0.0-alpha.8",
+    "koa-router": "7.0.1",
+    "koa-static": "2.1.0",
+    "koa-xtpl": "2.0.0",
+    "loader-utils": "1.0.2",
+    "path": "0.12.7",
+    "postcss-loader": "1.3.2",
+    "react": "15.4.2",
+    "react-dom": "15.4.2",
+    "react-router": "3.0.2",
+    "sass-loader": "6.0.2",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "2.2.1",
+    "webpack-dev-server": "2.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "run server"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "txBoy",
+  "repository":{
+      "type": "git",
+      "url": "https://github.com/vimplus/ReactBuild.git"
+  },
+  "license": "MIT"
 }
