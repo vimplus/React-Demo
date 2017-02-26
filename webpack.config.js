@@ -9,6 +9,7 @@ var autoprefixer = require('autoprefixer');
 var loaderUtils = require('loader-utils');
 var options = loaderUtils.getOptions(this);
 
+
 module.exports = {
     watch: true, //监听变化自动编译
     //文件入口配置
@@ -17,13 +18,13 @@ module.exports = {
     },
     //文件输出配置
     output: {
-        path: __dirname + '/dist',  //打包输出目录
-        publicPath: '/',           //webpack-dev-server访问的路径
+        path: __dirname + '/dist', //打包输出目录
+        publicPath: '//static.react.thinktxt.com', //webpack-dev-server访问的路径
         filename: "[name].min.js"
     },
     //加载器配置
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js$/,
             exclude: /node_modules/,
             loader: "babel-loader",
@@ -31,14 +32,19 @@ module.exports = {
                 cacheDirectory: true,
             }
         }, {
-            test: /\.css$/,
+            test: /\.(css|scss|sass)$/,
             loader: ExtractTextPlugin.extract({
-                loader: 'css-loader?sourceMap'
-            })
-        }, {
-            test: /\.(scss|sass)$/,
-            loader: ExtractTextPlugin.extract({
-                loader: 'css-loader?sourceMap!sass-loader?sourceMap'
+                fallbackLoader: 'style-loader',
+                loader: [{
+                    loader: 'css-loader',
+                    options: {
+                        modules: true
+                    }
+                }, {
+                    loader: 'postcss-loader'
+                }, {
+                    loader: 'sass-loader'
+                }]
             })
         }, {
             test: /\.(png|jpg|gif)$/i,
@@ -47,21 +53,15 @@ module.exports = {
     },
     //插件项
     plugins: [
-    //new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin("[name].css"),
-    new HtmlWebpackPlugin({
+        new ExtractTextPlugin("[name].css"),
+        new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             template: './index.html', //html模板路径
         }),
-    // new webpack.DefinePlugin({
-    //         "process.env": {
-    //             NODE_ENV: JSON.stringify("production")
-    //         }
-    //     }),
-    new HtmlWebpackHarddiskPlugin(),
-    new webpack.LoaderOptionsPlugin({
+        new HtmlWebpackHarddiskPlugin(),
+        new webpack.LoaderOptionsPlugin({
             options: {
-                postcss: function () {
+                postcss: function() {
                     return [autoprefixer];
                 }
             }
