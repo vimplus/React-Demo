@@ -1,5 +1,7 @@
 /**
- * Created by vimplus on 2017/02/22.
+ * @overview: Home Page
+ * @author: txBoy
+ * @created: 2017-02-22.
  */
 import React from "react";
 import util from "libs/util";
