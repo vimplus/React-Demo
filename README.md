@@ -1,6 +1,6 @@
 # React新项目构建
 
-这是一个React应用的经典项目Demo，涉及到的技术方案有React、React-Router、gulp、webpack 2、Koa 2等。
+这是一个React应用的项目Demo，涉及到的技术方案有React、React-Router、gulp、webpack 2、Koa 2等。
 
 ## 项目结构
 
@@ -47,12 +47,23 @@ server {
 }
 ```
 
-## 启动应用
+## 配置Host
+
+```
+127.0.0.1 react-dev.thinktxt.com
+127.0.0.1 static.react.thinktxt.com
+```
+
+## 构建
 
 ```shell
 gulp server
 ```
 
+## 开启Node服务
 
+```shell
+node server/start.js
+```
 
 启动后在浏览器输入：`http://react-dev.thinktxt.com/`
