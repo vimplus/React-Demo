@@ -15,6 +15,7 @@ class App extends React.Component {
         return (
             <div>
                 <ul>
+                  <li><IndexLink to="/">首页</IndexLink></li>
                   <li><Link to="/list">list</Link></li>
                   <li><Link to="/About">About</Link></li>
                 </ul>
@@ -32,5 +33,6 @@ const routes = [
 module.exports = {
     path: '/',
     component: App,
-    childRoutes: routes
+    childRoutes: routes,
+    defaultIndex: List
 }

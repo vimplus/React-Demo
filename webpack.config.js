@@ -20,7 +20,7 @@ module.exports = {
     output: {
         path: __dirname + '/dist', //打包输出目录
         publicPath: '//static.react.thinktxt.com', //webpack-dev-server访问的路径
-        filename: "[name].min.js"
+        filename: "[name].[hash].js"
     },
     //加载器配置
     module: {
@@ -53,7 +53,7 @@ module.exports = {
     },
     //插件项
     plugins: [
-        new ExtractTextPlugin("[name].css"),
+        new ExtractTextPlugin("[name].[hash].css"),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             template: './src/index.html', //html模板路径
