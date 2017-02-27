@@ -56,7 +56,7 @@ module.exports = {
         new ExtractTextPlugin("[name].css"),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            template: './index.html', //html模板路径
+            template: './src/index.html', //html模板路径
         }),
         new HtmlWebpackHarddiskPlugin(),
         new webpack.LoaderOptionsPlugin({
