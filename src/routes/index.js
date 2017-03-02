@@ -7,9 +7,17 @@
 import React from "react";
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory, hashHistory} from 'react-router';
 
-import Index from "./HelloWorld";
+import IndexPage from "./HelloWorld";
 import List from "./BlogList";
-import About from "./About";
+
+
+var getAbout = (nextState, callback) => {
+      require.ensure(['./About'], function(require) {
+        var About = require("./About").default;
+        console.log(callback)
+        callback(null, About)
+      })
+    }
 
 class App extends React.Component {
     render() {
@@ -17,8 +25,8 @@ class App extends React.Component {
             <div>
                 <ul>
                   <li><IndexLink to="/">首页</IndexLink></li>
-                  <li><Link to="/list">list</Link></li>
-                  <li><Link to="/About">About</Link></li>
+                  <li><Link to="/list">List</Link></li>
+                  <li><Link to="/about">About</Link></li>
                 </ul>
                 {this.props.children}
             </div>
@@ -28,12 +36,12 @@ class App extends React.Component {
 
 const routes = [
     { path: 'list', component: List },
-    { path: 'about', component: About }
+    { path: 'about', getComponent: getAbout }
 ]
 
 module.exports = {
     path: '/',
     component: App,
     childRoutes: routes,
-    defaultIndex: List
+    defaultIndex: IndexPage
 }
