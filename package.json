@@ -13,6 +13,7 @@
     "babel-preset-stage-0": "6.22.0",
     "babel-preset-stage-3": "6.22.0",
     "browser-sync": "2.18.8",
+    "chunk-manifest-webpack-plugin": "^1.0.0",
     "css-loader": "0.26.1",
     "express": "4.14.1",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
@@ -34,7 +35,9 @@
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "2.2.1",
-    "webpack-dev-server": "2.4.1"
+    "webpack-dev-server": "2.4.1",
+    "webpack-manifest-plugin": "^1.1.0",
+    "webpack-md5-hash": "0.0.5"
   },
   "devDependencies": {},
   "scripts": {
@@ -44,9 +47,9 @@
     "react"
   ],
   "author": "txBoy",
-  "repository":{
-      "type": "git",
-      "url": "https://github.com/vimplus/ReactBuild.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vimplus/ReactBuild.git"
   },
   "license": "MIT"
 }

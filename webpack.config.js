@@ -1,13 +1,14 @@
-var webpack = require('webpack');
-var path = require("path");
+const webpack = require('webpack');
+const path = require("path");
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
-var loaderUtils = require('loader-utils');
-var options = loaderUtils.getOptions(this);
+const loaderUtils = require('loader-utils');
+const options = loaderUtils.getOptions(this);
 
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
     output: {
         path: __dirname + '/dist', //打包输出目录
         publicPath: '//static.react.thinktxt.com', //webpack-dev-server访问的路径
-        filename: "[name].[hash].js"
+        filename: "[name].[chunkhash].js"
     },
     //加载器配置
     module: {
@@ -53,12 +54,13 @@ module.exports = {
     },
     //插件项
     plugins: [
-        new ExtractTextPlugin("[name].[hash].css"),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             template: './src/index.html', //html模板路径
         }),
         new HtmlWebpackHarddiskPlugin(),
+        new WebpackMd5Hash(),
+        new ExtractTextPlugin("[name].[contenthash].css"),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: function() {
