@@ -1,5 +1,5 @@
 /**
- * @overview: Build Entry
+ * @overview: Main Entry
  * @author: txBoy
  * @created: 2017-02-22.
  */

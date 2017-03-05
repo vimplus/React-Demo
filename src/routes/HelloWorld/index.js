@@ -12,7 +12,7 @@ class HelloWorld extends React.Component {
   render() {
     return (
         <div>
-            Hello World, This a React App.
+            Hello World, This a simple React App.
         </div>);
   }
 }

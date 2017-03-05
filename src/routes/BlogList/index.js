@@ -4,6 +4,7 @@
  * @created: 2017-02-23.
  */
 import React from "react";
+import css from "css/master.scss";
 
 class List extends React.Component{
     render() {
