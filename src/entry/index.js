@@ -13,5 +13,5 @@ import routes from "../routes";
 
 ReactDOM.render(
     <Router history = {browserHistory} routes = {routes}/>,
-    document.getElementById("APP")
+    document.getElementById("ReactApp")
 );

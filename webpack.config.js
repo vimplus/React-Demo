@@ -1,35 +1,38 @@
-var webpack = require('webpack');
-var path = require("path");
+const webpack = require('webpack');
+const path = require("path");
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const autoprefixer = require('autoprefixer');
 
-var loaderUtils = require('loader-utils');
-var options = loaderUtils.getOptions(this);
-
+// const loaderUtils = require('loader-utils');
+// const options = loaderUtils.getOptions(this);
+process.noDeprecation = true;
 
 module.exports = {
     watch: true, //监听变化自动编译
     //文件入口配置
     entry: {
-        index: "./src/entry/index.js"
+        index: "./src/entry/index.js",
+        vendor: ['react', 'react-dom']
     },
     //文件输出配置
     output: {
         path: __dirname + '/dist', //打包输出目录
         publicPath: '//static.react.thinktxt.com/', //webpack-dev-server访问的路径
-        filename: "[name].[hash].js"
+        filename: '[name].[hash].js',
+        chunkFilename: '[id].[hash:8].js'
     },
     //加载器配置
     module: {
         rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
+            test: /\.jsx?$/,
+            exclude: /(node_modules|bower_components)/,
             loader: "babel-loader",
             options: {
-                cacheDirectory: true,
+                cacheDirectory: true
             }
         }, {
             test: /\.(css|scss|sass)$/,
@@ -53,6 +56,10 @@ module.exports = {
     },
     //插件项
     plugins: [
+        new CommonsChunkPlugin({
+            name:['vendor'].reverse(),
+            minChunks: 3
+        }),
         new ExtractTextPlugin("[name].[hash].css"),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,

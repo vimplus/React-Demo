@@ -10,7 +10,10 @@ import scss from "./home.scss";
 
 class HelloWorld extends React.Component {
   render() {
-    return (<div>Hello World, This a React App. </div>);
+    return (
+        <div>
+            Hello World, This a React App.
+        </div>);
   }
 }
 export default HelloWorld;
