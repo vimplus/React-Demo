@@ -4,6 +4,7 @@
  * @created: 2017-02-23.
  */
 import React from "react";
+import css from "css/master.scss";
 
 class List extends React.Component{
     render() {
@@ -16,6 +17,7 @@ class List extends React.Component{
                     <li>列表04</li>
                     <li>列表05</li>
                     <li>列表06</li>
+                    <li>列表08</li>
                 </ul>
             </div>
         );

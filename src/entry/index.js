@@ -1,5 +1,5 @@
 /**
- * @overview: Build Entry
+ * @overview: Main Entry
  * @author: txBoy
  * @created: 2017-02-22.
  */
@@ -13,5 +13,5 @@ import routes from "../routes";
 
 ReactDOM.render(
     <Router history = {browserHistory} routes = {routes}/>,
-    document.getElementById("APP")
+    document.getElementById("ReactApp")
 );
