@@ -79,7 +79,13 @@ function reconfig(config) {
 	config.watch = false;
 	config.output.publicPath = '/';
 	config.plugins.push(
-		new webpack.optimize.UglifyJsPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+					warnings: false,
+					drop_debuger: true,
+					drop_console: true
+			}
+		}),
 		new webpack.DefinePlugin({
 			"process.env": {
 				NODE_ENV: JSON.stringify("production")

@@ -31,9 +31,9 @@ module.exports = {
     //文件输出配置
     output: {
         path: __dirname + '/dist', //打包输出目录
-        publicPath: '//static.react.thinktxt.com/', //webpack-dev-server访问的路径
-        filename: '[name].[chunkhash:8].js',
-        chunkFilename: '[id].chunk.[chunkhash:8].js'
+        publicPath: '', //webpack-dev-server访问的路径
+        filename: 'js/[name].[chunkhash:8].js',
+        chunkFilename: 'js/[id].chunk.[chunkhash:8].js'
     },
     //加载器配置
     module: {
@@ -77,18 +77,20 @@ module.exports = {
         // new HtmlFilePlugin({
   	    //     filename: 'manifest.json'
   	    // }),
-        new InlineManifestWebpackPlugin(),
+        new InlineManifestWebpackPlugin({
+          name: 'webpackManifest'
+        }),
         new CommonsChunkPlugin({
             name:['manifest', 'vendor'].reverse(),
             minChunks: 3
         }),
         new ExtractTextPlugin({
-            filename: '[name].[contenthash:8].css'
+            filename: 'css/[name].[contenthash:8].css'
         }),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             template: './src/index.html', //html模板路径
-            chunks: ['manifest', 'vendor', 'index'],  // manifest: 可以理解为模块清单，载货单
+            chunks: ['manifest', 'vendor', 'index']  // manifest: 可以理解为模块清单，载货单
         }),
         new HtmlWebpackHarddiskPlugin(),
         //new WebpackMd5Hash(),  //有bug, 模块更新了，却不更新manifest，导致请求的还是旧模块版本资源
