@@ -6,7 +6,7 @@
 import React from "react";
 import css from "css/master.scss";
 
-class About extends React.Component{
+class About extends React.Component {
     render() {
         return (
             <div>

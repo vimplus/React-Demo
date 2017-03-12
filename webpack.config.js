@@ -4,7 +4,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
-const WebpackMd5Hash = require('webpack-md5-hash');
+//const WebpackMd5Hash = require('webpack-md5-hash');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
@@ -16,7 +16,7 @@ const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 const AggressiveMergingPlugin = webpack.optimize.AggressiveMergingPlugin;
 const OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;  //webpack 2 已不需要
 
-const HtmlFilePlugin = require('html-file-webpack-plugin');
+//const HtmlFilePlugin = require('html-file-webpack-plugin');
 // const loaderUtils = require('loader-utils');
 // const options = loaderUtils.getOptions(this);
 process.noDeprecation = true;
@@ -82,14 +82,15 @@ module.exports = {
         }),
         new CommonsChunkPlugin({
             name:['manifest', 'vendor'].reverse(),
-            minChunks: 3
+            minChunks: Infinity
         }),
         new ExtractTextPlugin({
             filename: 'css/[name].[contenthash:8].css'
         }),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            template: './src/index.html', //html模板路径
+            filename: 'index.html',
+            template: './index.html', //html模板路径
             chunks: ['manifest', 'vendor', 'index']  // manifest: 可以理解为模块清单，载货单
         }),
         new HtmlWebpackHarddiskPlugin(),
