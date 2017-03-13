@@ -82,7 +82,7 @@ function reconfig(config) {
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 					warnings: false,
-					drop_debuger: true,
+					drop_debugger: true,
 					drop_console: true
 			}
 		}),
