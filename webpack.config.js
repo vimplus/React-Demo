@@ -31,7 +31,7 @@ module.exports = {
     //文件输出配置
     output: {
         path: __dirname + '/dist', //打包输出目录
-        publicPath: '', //webpack-dev-server访问的路径
+        publicPath: '//static.react.thinktxt.com/', //webpack-dev-server访问的路径
         filename: 'js/[name].[chunkhash:8].js',
         chunkFilename: 'js/[id].chunk.[chunkhash:8].js'
     },
