@@ -90,7 +90,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             filename: 'index.html',
-            template: './index.html', //html模板路径
+            template: './src/views/index.html', //html模板路径
             chunks: ['manifest', 'vendor', 'index']  // manifest: 可以理解为模块清单，载货单
         }),
         new HtmlWebpackHarddiskPlugin(),

@@ -7,21 +7,19 @@
 import React from "react";
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory, hashHistory} from 'react-router';
 
-import IndexPage from "./HelloWorld";
+import IndexPage from "./homePage";
 
 const getAbout = (nextState, callback) => {
-      require.ensure(['./About'], function(require) {
-        let About = require("./About").default;
+    console.log(nextState)
+    require.ensure(['./about'], (require) => {
+        let About = require("./about").default;
         callback(null, About)
       })
     }
 
-const getList = (nextState, callback) => {
-    require.ensure(['./BlogList'], function (require) {
-        let List = require('./BlogList').default;
-        callback(null, List)
-    })
-}
+const getList = require('./blog/list').default;
+console.log(getAbout)
+console.log(getList.getComponent)
 
 class App extends React.Component {
     render() {
@@ -40,7 +38,7 @@ class App extends React.Component {
 
 //Route Object写法
 const childRoutes = [
-    { path: 'list', getComponent: getList },
+    getList,
     { path: 'about', getComponent: getAbout }
 ]
 const routes = {
