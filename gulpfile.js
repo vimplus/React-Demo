@@ -76,7 +76,6 @@ gulp.task('release', function(callback) {
 });
 
 function reconfig(config) {
-	config.watch = false;
 	config.output.publicPath = '/';
 	config.plugins.push(
 		new webpack.optimize.UglifyJsPlugin({

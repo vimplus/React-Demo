@@ -5,17 +5,19 @@
 ## 项目结构
 
 ```
+|- dist/
+|- server
 |- src/
     |- sass/
     |- images/
     |- js/
-    |- js/utils/
-    |- js/index.js
+        |- utils/
     |- routes/
-|- dist/
-|- index.html
-|- gulpfile.js
+    |- views
+        |- index.html
 |- node_modules/
+|- gulpfile.js
+|- .babelrc
 |- packge.json
 ```
 
@@ -66,4 +68,12 @@ gulp server
 node server/start.js
 ```
 
-启动后在浏览器输入：`http://react-dev.thinktxt.com/`
+启动后在浏览器输入：`http://react-dev.thinktxt.com/`即可访问。
+
+## 发布
+
+```shell
+gulp release
+```
+
+执行后在`dist`目录可以查看静态资源。

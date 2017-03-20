@@ -22,7 +22,6 @@ const OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;  //webpack 2
 process.noDeprecation = true;
 
 module.exports = {
-    watch: true, //监听变化自动编译
     //文件入口配置
     entry: {
         index: "./src/entry/index.js",

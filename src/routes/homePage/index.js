@@ -9,11 +9,12 @@ import css from "css/master.scss";
 import scss from "./home.scss";
 
 class HelloWorld extends React.Component {
-  render() {
-    return (
-        <div>
-            Hello World, This a simple React App.
-        </div>);
-  }
+    render() {
+        return (
+            <div>
+                Hello World, This a simple React App.
+            </div>
+        );
+    }
 }
 export default HelloWorld;
