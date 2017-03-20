@@ -10,8 +10,8 @@ class About extends React.Component {
     render() {
         return (
             <div>
-                关于乐潇游
-                乐潇游 - 快乐，潇洒，自游儿~~~
+                <p>关于乐潇游</p>
+                <p>乐潇游 - 快乐，潇洒，自游儿~~~</p>
             </div>
         );
     }

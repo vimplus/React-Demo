@@ -8,18 +8,21 @@ import { Link } from "react-router";
 import css from "css/master.scss";
 
 class List extends React.Component{
+    renderList () {
+        var liDOM = [];
+        var tmp = null;
+        for (var i = 1; i < 10; i++) {
+            tmp = <li key={i}><Link to={'/blog/detail/' + i}>列表{i}</Link></li>
+            liDOM.push(tmp);
+        }
+        return liDOM;
+    }
+
     render() {
         return (
             <div>
                 <ul>
-                    <li><Link to='/blog/detail/01'>列表01</Link></li>
-                    <li>列表02</li>
-                    <li>列表03</li>
-                    <li>列表04</li>
-                    <li>列表05</li>
-                    <li>列表06</li>
-                    <li>列表07</li>
-                    <li>列表08</li>
+                    {this.renderList()}
                 </ul>
             </div>
         );
