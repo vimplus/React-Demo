@@ -11,15 +11,33 @@ import IndexPage from "./homePage";
 
 const getAbout = (nextState, callback) => {
     console.log(nextState)
-    require.ensure(['./about'], (require) => {
+    require.ensure([], (require) => {
         let About = require("./about").default;
         callback(null, About)
-      })
-    }
+    })
+}
 
-const getList = require('./blog/list').default;
-console.log(getAbout)
-console.log(getList.getComponent)
+const BlogPage = require('./blog').default;
+const AboutPage = { path: 'about', getComponent: getAbout };
+console.log(BlogPage)
+
+function formatRoutes(routes) {
+    let list = routes.slice(0);
+    let defaultComponent = (props) => {props.chidren};
+    while (list.length) {
+        let route = list.shift();
+        if (route.childRoutes && route.childRoutes.length) {
+            list.push.apply(list, route.childRoutes);
+        }
+    }
+    return routes;
+}
+
+var pageRoutes = formatRoutes([
+    BlogPage,
+    AboutPage
+]);
+console.log(pageRoutes)
 
 class App extends React.Component {
     render() {
@@ -27,7 +45,7 @@ class App extends React.Component {
             <div>
                 <ul>
                   <li><IndexLink to="/">首页</IndexLink></li>
-                  <li><Link to="/list" activeStyle={{color:'#f00'}}>List</Link></li>
+                  <li><Link to="/blog/list" activeStyle={{color:'#f00'}}>List</Link></li>
                   <li><Link to="/about" activeClassName="active">About</Link></li>
                 </ul>
                 {this.props.children}
@@ -36,11 +54,11 @@ class App extends React.Component {
     }
 }
 
-//Route Object写法
 const childRoutes = [
-    getList,
-    { path: 'about', getComponent: getAbout }
+    BlogPage,
+    AboutPage
 ]
+
 const routes = {
     path: '/',
     component: App,  //主要组件
