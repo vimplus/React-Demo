@@ -29,8 +29,8 @@ npm install
 
 ```nginx
 server {
+    listen 80;
 	server_name react-dev.thinktxt.com;
-	listen 80;
 
 	location / {
 		proxy_pass http://localhost:8081;
@@ -38,8 +38,8 @@ server {
 }
 
 server {
+    listen 80;
 	server_name static.react.thinktxt.com;
-	listen 80;
 
 	location / {
 		proxy_pass http://localhost:8080;
