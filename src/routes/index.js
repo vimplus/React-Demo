@@ -18,7 +18,7 @@ const getAbout = (nextState, callback) => {
 }
 
 const BlogPage = require('./blog').default;
-const AboutPage = { path: 'about', getComponent: getAbout };
+const AboutPage = {path: 'about', getComponent: getAbout};
 console.log(BlogPage)
 
 function formatRoutes(routes) {
