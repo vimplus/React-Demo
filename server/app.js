@@ -30,7 +30,7 @@ router.get('/getList', async(ctx, next) => {
 	};
 });
 
-router.get('/api/v1.0/dict/query', async(ctx, next) => {
+router.get('/api/v1.1/dict/query', async(ctx, next) => {
 	var query = ctx.request.query;
 	var params = queryString.stringify({
 		keyfrom: 'ThinkDict',
@@ -42,7 +42,7 @@ router.get('/api/v1.0/dict/query', async(ctx, next) => {
 	})
 	var url = 'http://fanyi.youdao.com/openapi.do?'
 	var res = await request(url + params, function (err, res, body) {
-		console.error(err)
+		//console.error(err)
 		return body;
 	});
 	ctx.response.body = res;
