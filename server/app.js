@@ -6,6 +6,9 @@ import Koa from 'koa';
 import xtpl from 'koa-xtpl';
 import path from 'path';
 import Router from 'koa-router';
+import request from 'request';
+import queryString from 'querystring';
+import fetch from 'node-fetch';
 
 const app = new Koa();
 const router = new Router();
@@ -18,6 +21,33 @@ app.use(xtpl({
 	commands: {}
 }));
 
+app.use(router.routes());
+
+router.get('/getList', async(ctx, next) => {
+	ctx.response.body = {
+		code: 10000,
+		msg: 'success'
+	};
+});
+
+router.get('/api/v1.0/dict/query', async(ctx, next) => {
+	var query = ctx.request.query;
+	var params = queryString.stringify({
+		keyfrom: 'ThinkDict',
+		key: '1310088104',
+		type: 'data',
+		doctype: 'json',
+		version: '1.1',
+		q: query.word
+	})
+	var url = 'http://fanyi.youdao.com/openapi.do?'
+	var res = await request(url + params, function (err, res, body) {
+		console.error(err)
+		return body;
+	});
+	ctx.response.body = res;
+});
+
 app.use(async(ctx, next) => {
 	if (ctx.path.startsWith('/test')) {
 		await next();
@@ -27,21 +57,8 @@ app.use(async(ctx, next) => {
 });
 
 app.use(async(ctx, next) => {
-	ctx.response.body = 'index';
+	ctx.response.body = 'Test here';
 });
-
-
-
-app.use(router.routes());
-
-router.get('/getList', async(ctx, next) => {
-	ctx.response.body = {
-		code: 10000,
-		msg: 'ok'
-	};
-});
-
-
 
 
 app.listen(port, () => {
